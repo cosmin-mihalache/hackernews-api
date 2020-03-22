@@ -13,9 +13,9 @@ function Stories() {
   const [storyIds, setStoryIds] = useState([]);
 
   useEffect(() => {
-    console.log('count', count);
+    // console.log('count', count);
     getStoryIds().then(data => setStoryIds(data));
-  }, [count]); 
+  }, []); // count
 
   return (
     <>
