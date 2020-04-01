@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, cleanup, waitForElement } from '@testing-library/react';
-import App from '../App';
+import StoriesContainer from '../containers/StoriesContainer';
 import { storyIds, singularStory } from '../fixtures';
 import { getStory, getStoryIds } from '../services/hnApi';
 import { useInfiniteScroll } from '../hooks/useInfiniteScroll';
@@ -14,14 +14,14 @@ jest.mock('../services/hnApi', () => ({
   getStoryIds: jest.fn(),
 }));
 
-test('renders the application', async () => {
+test('renders the story container with a story', async () => {
   useInfiniteScroll.mockImplementation(() => ({
     count: STORY_INCREMENT,
   }));
   getStory.mockImplementation(() => Promise.resolve(singularStory));
   getStoryIds.mockImplementation(() => Promise.resolve(storyIds));
 
-  const { getByText, queryByTestId } = render(<App />);
+  const { getByText, queryByTestId } = render(<StoriesContainer />);
   await waitForElement(() => [
     expect(getByText('Hacker News Stories')).toBeTruthy(),
     expect(getByText('Mask: Google Responds')).toBeTruthy(),

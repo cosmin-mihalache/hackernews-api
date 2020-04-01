@@ -13,6 +13,20 @@
     "react-scripts": "3.4.0",
     "styled-components": "^5.0.1"
   },
+  "jest": {
+    "coverageThreshold": {
+      "global": {
+        "branches": 95,
+        "functions": 95,
+        "lines": 95,
+        "statments": 95
+      }
+    },
+    "coverageReporters": [
+      "html",
+      "text"
+    ]
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
