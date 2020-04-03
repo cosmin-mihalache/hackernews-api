@@ -1,22 +1,32 @@
 /*eslint-disable*/
 import { useState, useEffect } from 'react';
 import { MAX_STORIES, STORY_INCREMENT } from '../constants/index';
-import {debounce} from '../utils/debounce';
+import { debounce } from '../utils/debounce';
 
 export const useInfiniteScroll = () => {
   const [loading, setLoading] = useState(false);
   const [count, setCount] = useState(STORY_INCREMENT);
 
+  // const handleScroll = debounce(() => {
+  //   if (
+  //     window.innerHeight + document.documentElement.scrollTop !==
+  //       document.documentElement.offsetHeight ||
+  //     loading
+  //   ) {
+  //     return false;
+  //   }
+  //   setLoading(true);
+  // }, 500);
+
   const handleScroll = debounce(() => {
-    if (
-      window.innerHeight + document.documentElement.scrollTop !==
-        document.documentElement.offsetHeight ||
-      loading
-    ) {
-      return false;
-    }
+    const scrollToBottom = Math.floor(
+      document.documentElement.offsetHeight -
+        (window.innerHeight + document.documentElement.scrollTop)
+    );
+    if (scrollToBottom > 5 || loading) return false;
+
     setLoading(true);
-  }, 500);
+  }, 800);
 
   useEffect(() => {
     if (!loading) return;

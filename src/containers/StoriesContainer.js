@@ -1,6 +1,6 @@
 /* eslint-disable */
-import React, { useState, useEffect, memo } from 'react';
-import { getStoryIds, getStory } from '../services/hnApi';
+import React, { useState, useEffect } from 'react';
+import { getStoryIds } from '../services/hnApi';
 import Story from '../components/Story';
 import {
   GlobalStyle,
@@ -13,9 +13,9 @@ function Stories() {
   const [storyIds, setStoryIds] = useState([]);
 
   useEffect(() => {
-    // console.log('count', count);
+    console.log('count', count);
     getStoryIds().then(data => setStoryIds(data));
-  }, []); // count
+  }, [count]); // count
 
   return (
     <>
