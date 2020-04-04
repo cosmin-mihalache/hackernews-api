@@ -11,9 +11,19 @@
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-scripts": "3.4.0",
+    "serve": "^11.3.0",
     "styled-components": "^5.0.1"
   },
   "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.js",
+      "!src/index.js",
+      "!src/serviceWorker.js",
+      "!src/hooks/*.js",
+      "!src/selectors/*.js",
+      "!src/mappers/*.js",
+      "!src/utils/*.js"
+    ],
     "coverageThreshold": {
       "global": {
         "branches": 95,

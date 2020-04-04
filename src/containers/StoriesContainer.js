@@ -15,7 +15,7 @@ function Stories() {
   useEffect(() => {
     console.log('count', count);
     getStoryIds().then(data => setStoryIds(data));
-  }, [count]); // count
+  }, []); // count
 
   return (
     <>
