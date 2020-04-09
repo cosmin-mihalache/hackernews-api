@@ -7,17 +7,6 @@ export const useInfiniteScroll = () => {
   const [loading, setLoading] = useState(false);
   const [count, setCount] = useState(STORY_INCREMENT);
 
-  // const handleScroll = debounce(() => {
-  //   if (
-  //     window.innerHeight + document.documentElement.scrollTop !==
-  //       document.documentElement.offsetHeight ||
-  //     loading
-  //   ) {
-  //     return false;
-  //   }
-  //   setLoading(true);
-  // }, 500);
-
   const handleScroll = debounce(() => {
     const scrollToBottom = Math.floor(
       document.documentElement.offsetHeight -
@@ -26,7 +15,7 @@ export const useInfiniteScroll = () => {
     if (scrollToBottom > 5 || loading) return false;
 
     setLoading(true);
-  }, 800);
+  }, 300);
 
   useEffect(() => {
     if (!loading) return;
@@ -34,7 +23,7 @@ export const useInfiniteScroll = () => {
     if (count + STORY_INCREMENT >= MAX_STORIES) {
       setCount(MAX_STORIES);
     } else {
-      setCount(count + STORY_INCREMENT); // 30 + 30 = 60 + 30 on scroll
+      setCount(count + STORY_INCREMENT); // 20 + 20 = 40 + 20 scroll
     }
     setLoading(false);
   }, [loading]); //count
