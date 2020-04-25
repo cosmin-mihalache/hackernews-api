@@ -17,14 +17,13 @@ export const StoryWrapper = styled.section`
 
 export const StoryTitle = styled.h1`
   margin-bottom: 5px;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   line-height: 1.8;
   margin: 0;
   text-decoration: none;
 
   a {
-    color: #2e2ec;
-    background-color: #f8dc3d;
+    color: #f13a5c;
     text-decoration: none;
   }
 `;
@@ -47,5 +46,5 @@ export const StoryMeta = styled.div`
 
 export const StoryMetaElement = styled.span`
   font-weight: bold;
-  color: ${props => props.color || 'red'};
+  color: ${(props) => props.color || ''};
 `;
