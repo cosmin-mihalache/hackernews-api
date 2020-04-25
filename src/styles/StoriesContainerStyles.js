@@ -17,7 +17,11 @@ body {
     color: #202020;
     background-color: #fafafe;
     font-family Arial, Helvetica, sans-serif;
-    font-size: 1.2rem;
+    font-size: 0.8rem;
+}
+
+h1 {
+    font-size: 2.2rem;
 }
 
 ul {
