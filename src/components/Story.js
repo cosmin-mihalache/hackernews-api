@@ -20,14 +20,14 @@ function Story({ storyId }) {
   return story && story.url ? (
     <StoryWrapper data-testid="story">
       <StoryTitle>
-        <a href={story.url}>{story.title}</a>
+        <a target="_blank" href={story.url}>{story.title}</a>
       </StoryTitle>
       <StoryMeta>
         <span className="story__by" data-testid="story-by">
-          <StoryMetaElement color="red">By:</StoryMetaElement> {story.by}
+          <StoryMetaElement color="">By:</StoryMetaElement> {story.by}
         </span>
         <span className="story__time" data-testid="story-time">
-          <StoryMetaElement color="blue">Posted:</StoryMetaElement>
+          <StoryMetaElement color="">Posted:</StoryMetaElement>
           {` `}
           {mapTime(story.time)}
         </span>
